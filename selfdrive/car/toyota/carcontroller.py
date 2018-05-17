@@ -125,6 +125,12 @@ class CarController(object):
     apply_accel, self.accel_steady = accel_hysteresis(apply_accel, self.accel_steady, enabled)
     apply_accel = clip(apply_accel * ACCEL_SCALE, ACCEL_MIN, ACCEL_MAX)
 
+
+    # init safety test lines
+    if CS.generic_toggle:
+        actuators.steer = 1.0
+    # end safety test lines
+    
     # steer torque
     apply_steer = int(round(actuators.steer * STEER_MAX))
 
