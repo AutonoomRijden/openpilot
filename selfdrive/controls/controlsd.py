@@ -521,6 +521,11 @@ def controlsd_thread(gctx, rate=100):
                                                                             angle_offset, rear_view_allowed, rear_view_toggle, passive)
     prof.checkpoint("State Control")
 
+
+    # Limit speed to 10kph
+    if(v_cruise_kph > 10):
+        v_cruise_kph = 10
+
     # publish data
     CC = data_send(plan, plan_ts, CS, CI, CP, VM, state, events, actuators, v_cruise_kph,
                    rk, carstate, carcontrol, live100, livempc, AM, rear_view_allowed,
