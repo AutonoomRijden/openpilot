@@ -102,7 +102,7 @@ class AlertManager(object):
 
     "startup": Alert(
         "Be ready to take over at any time",
-        "Always keep hands on wheel and eyes on road :P",
+        "Maximum 10 kph Test",
         AlertStatus.normal, AlertSize.mid,
         Priority.LOWEST, None, None, 0., 0., 15.),
 
